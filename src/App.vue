@@ -4,7 +4,7 @@
     <div class="filtros">
 
       <label>
-        <input type="radio" name="all" value= "0" v-model="filterVal" checked>
+        <input type="radio" id="rbtn-1" name="all" value= "0" v-model="filterVal" checked="checked">
         Todos los albumes
       </label>
       <label>
