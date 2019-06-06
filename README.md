@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vue-filtros
 
 ## Project setup
@@ -27,3 +28,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# Filtro-vue.js
+Filtro de productos
+>>>>>>> 512424d101e0be17b2fae879afc6a683c3b86555
