@@ -4,6 +4,10 @@
     <div class="filtros">
 
       <label>
+        <input type="radio" name="filterVal" value= "0" v-model="filterVal">
+        Todos
+      </label>
+      <label>
         <input type="radio" name="filterVal" value= "1" v-model="filterVal">
         Foo Fighters
       </label>
@@ -76,7 +80,7 @@ export default {
   },
   computed:{
     getAlbumsByBand: function(){
-      if(this.filterVal === " "){
+      if(this.filterVal === " " || parseInt(this.filterVal) === 0){
         return this.bands.filter(album => album.parent != 0);
       }else if(this.filterVal != 0){
         return this.bands.filter(album => album.parent === parseInt(this.filterVal));
