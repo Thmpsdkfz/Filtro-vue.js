@@ -44,6 +44,7 @@
         <h3>{{product.val}}</h3>
         <small>{{product.by}}</small>
         <small>{{product.year}}</small>
+        <img :src="product.image" alt="image" class="img-responsive">
         <div class="price"><small>${{product.price}}</small></div>
       </div>
     </div>
@@ -151,6 +152,10 @@ export default {
     small{
       margin: 0 .4rem .2rem 0;
     }
+  }
+    img{
+    width: 100%;
+    height: auto
   }
 
 }
