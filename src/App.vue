@@ -4,40 +4,44 @@
     <div class="filtros">
 
       <label>
-        <input type="radio" name="filterVal" value= "0" v-model="filterVal">
-        Todos
+        <input type="radio" name="all" value= "0" v-model="filterVal" checked>
+        Todos los albumes
       </label>
       <label>
-        <input type="radio" name="filterVal" value= "1" v-model="filterVal">
+        <input type="radio" name="ff" value= "1" v-model="filterVal">
         Foo Fighters
       </label>
       <label>
-        <input type="radio" name="filterVal" value= "2" v-model="filterVal">
+        <input type="radio" name="rhcp" value= "2" v-model="filterVal">
         RHCP
       </label>
       <label>
-        <input type="radio" name="filterVal" value= "3" v-model="filterVal">
+        <input type="radio" name="qotsa" value= "3" v-model="filterVal">
         QOTSA
       </label>
       <label>
-        <input type="radio" name="filterVal" value= "4" v-model="filterVal">
+        <input type="radio" name="gorillaz" value= "4" v-model="filterVal">
         Gorillaz
       </label>
 
       <label>
-        <input type="radio" name="filter" value="range1" v-model="rangeFilter">
+        <input type="radio" name="allPrices" value="rangeTd" v-model="rangeFilter" checked>
+        Todos los precios
+      </label>
+      <label>
+        <input type="radio" name="first" value="range1" v-model="rangeFilter">
           $1 - $10
       </label>
       <label>
-        <input type="radio" name="filter" value="range2" v-model="rangeFilter">
+        <input type="radio" name="second" value="range2" v-model="rangeFilter">
           $11 - $20
       </label>
       <label>
-        <input type="radio" name="filter" value="range3" v-model="rangeFilter">
+        <input type="radio" name="third" value="range3" v-model="rangeFilter">
           $21 - $30
       </label>
       <label>
-        <input type="radio" name="filter" value="range4" v-model="rangeFilter">
+        <input type="radio" name="fourth" value="range4" v-model="rangeFilter">
           Sobre $30
       </label>
 
@@ -64,7 +68,9 @@ export default {
   name: "app",
   methods: {
     getAlbumsByPrice: function(e){
-      if(this.rangeFilter === "range1"){
+      if(this.rangeFilter === "rangeTd"){
+        return e.filter(album => album.price > 0);
+      }else if(this.rangeFilter === "range1"){
         return e.filter(album => album.price>=0 && album.price<=10);
       }else if(this.rangeFilter === "range2"){
         return e.filter(album => album.price>10 && album.price<=20);
@@ -75,7 +81,6 @@ export default {
       }else{
         return [];
       }
-
     }
   },
   computed:{
@@ -88,7 +93,7 @@ export default {
     },
     mainFilter: function(){ 
       if(this.getAlbumsByBand.length > 0){
-        if(this.rangeFilter==="range1"||this.rangeFilter ==="range2"||this.rangeFilter ==="range3"||this.rangeFilter ==="range4"){
+        if(this.rangeFilter==="rangeTd"||this.rangeFilter==="range1"||this.rangeFilter ==="range2"||this.rangeFilter ==="range3"||this.rangeFilter ==="range4"){
           return this.getAlbumsByPrice(this.getAlbumsByBand);
         }
         return this.getAlbumsByBand;
@@ -161,7 +166,6 @@ export default {
     width: 100%;
     height: auto
   }
-
 }
 
 
